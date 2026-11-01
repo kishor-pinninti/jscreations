@@ -578,7 +578,10 @@ grid.addEventListener("click", e => {
 document.querySelectorAll(".filters button").forEach(b => b.addEventListener("click", () => {
   document.querySelectorAll(".filters button").forEach(x => x.setAttribute("aria-pressed", x === b));
   grid.querySelectorAll(".cat").forEach(el => el.hidden = !(b.dataset.f === "all" || el.dataset.cat === b.dataset.f));
-  document.getElementById("collection").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+  const target = b.dataset.f === "all" ? grid : document.getElementById("cat-" + b.dataset.f);
+  const headerH = document.querySelector("header.site").getBoundingClientRect().height;
+  const y = target.getBoundingClientRect().top + scrollY - headerH - 12;
+  scrollTo({top: y, behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
 }));
 
 /* lightbox */
