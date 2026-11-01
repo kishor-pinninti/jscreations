@@ -11,16 +11,16 @@
 <style>
 /* Layout: a temple-lamp night. Dark sanctum bands with gilded type, framed by a kemp-and-pearl border motif; silk-ivory in light mode. */
 :root{
-  --bg:#f6efe3;          /* jasmine silk */
-  --bg-2:#ede2cf;        /* deeper silk fold */
-  --fg:#2b1712;          /* rosewood */
-  --muted:#6f5548;
-  --gold:#9a6b14;        /* antique gold, readable on silk */
-  --gold-soft:#c99a3c;
-  --kemp:#8e1b3a;        /* kemp ruby */
+  --bg:#fdf1f7;          /* blush silk */
+  --bg-2:#f8deec;        /* deeper rani fold */
+  --fg:#3b0a2c;          /* deep plum */
+  --muted:#7c4868;
+  --gold:#b0157c;        /* rani magenta accent */
+  --gold-soft:#d9a441;   /* antique gold */
+  --kemp:#d81b7a;        /* magenta kemp */
   --pachi:#2f6a45;       /* pachi green */
-  --line:rgba(154,107,20,.35);
-  --card:#fbf6ec;
+  --line:rgba(176,21,124,.3);
+  --card:#fff8fc;
   --shadow:0 18px 40px -24px rgba(60,25,10,.45);
   --display:"Marcellus","Cinzel","Trajan Pro",Georgia,serif;
   --body:"Gentium Book Plus","Iowan Old Style",Georgia,serif;
@@ -234,9 +234,11 @@ dialog.lb button{font:500 .75rem/1 var(--ui);letter-spacing:.14em;text-transform
    Visitors see the theme saved in theme.json (falls back to SITE_THEME).
    The owner opens the site with #owner at the end of the address to see this bar,
    picks a theme, and taps "Save for everyone". Saving writes theme.json to the GitHub repo below. */
-const SITE_THEME = "jasmine";
+const SITE_THEME = "rani";
 const GH_REPO = "kishor-pinninti/jscreations";   // owner/repo that hosts the site
 const THEMES = {
+  rani:   {name:"Rani Magenta", dark:false, bg:"#fdf1f7", bg2:"#f8deec", fg:"#3b0a2c", muted:"#7c4868", gold:"#b0157c", goldSoft:"#d9a441", kemp:"#d81b7a", pachi:"#2f6a45", card:"#fff8fc"},
+  raniNight:{name:"Magenta Night", dark:true, bg:"#2a0920", bg2:"#360c2a", fg:"#fbe9f3", muted:"#d4a5c2", gold:"#f06ab8", goldSoft:"#e9c77d", kemp:"#ff7ab0", pachi:"#5fbf95", card:"#3a0d2e"},
   jasmine:{name:"Jasmine Silk", dark:false, bg:"#f6efe3", bg2:"#ede2cf", fg:"#2b1712", muted:"#6f5548", gold:"#9a6b14", goldSoft:"#c99a3c", kemp:"#8e1b3a", pachi:"#2f6a45", card:"#fbf6ec"},
   temple: {name:"Temple Night", dark:true,  bg:"#1a0e0b", bg2:"#241410", fg:"#f2e6d0", muted:"#bfa58c", gold:"#d9ab52", goldSoft:"#e9c77d", kemp:"#c94a6a", pachi:"#5fa77a", card:"#211310"},
   kumkum: {name:"Kumkum Red",   dark:false, bg:"#fbefe9", bg2:"#f5dfd6", fg:"#3a0d12", muted:"#7a4a48", gold:"#a0521a", goldSoft:"#d08a3c", kemp:"#b3122e", pachi:"#2f6a45", card:"#fff7f3"},
