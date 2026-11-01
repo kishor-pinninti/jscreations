@@ -115,17 +115,18 @@ section{padding-block:clamp(56px,8vw,104px)}
 .cat-head h3{font-size:clamp(1.5rem,2.6vw,1.9rem)}
 .cat-head span{font:500 .72rem/1 var(--ui);letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
 .cat-head p{grid-column:1/-1;margin:0;color:var(--muted);font-size:.98rem}
-.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,28px)}
-@media (max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:520px){.grid{grid-template-columns:1fr}}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+@media (max-width:1100px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.grid{grid-template-columns:1fr;max-width:340px;margin-inline:auto}}
 .piece{background:var(--card);border:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
 .piece button.zoom{all:unset;cursor:zoom-in;display:block;overflow:hidden}
 .piece img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .6s ease}
 .piece button.zoom:hover img{transform:scale(1.04)}
 .piece button.zoom:focus-visible{outline:2px solid var(--gold);outline-offset:-4px}
-.piece .info{padding:18px 18px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.piece .info{padding:14px 14px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
 .piece .kind{font:500 .7rem/1 var(--ui);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
-.piece h3{font-size:1.35rem}
+.piece h3{font-size:1.2rem}
 .piece p{margin:0;color:var(--muted);font-size:.98rem;line-height:1.5}
 .variants{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
 .sw{display:inline-flex;align-items:center;gap:7px;font:400 .78rem/1 var(--ui);letter-spacing:.04em;color:var(--muted);background:none;border:1px solid var(--line);padding:6px 10px 6px 7px;border-radius:999px}
@@ -151,7 +152,7 @@ button.sw[aria-pressed="true"]{border-color:var(--gold);color:var(--fg);backgrou
 /* about */
 #about .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,6vw,80px);align-items:center}
 @media (max-width:820px){#about .wrap{grid-template-columns:1fr}}
-.about-img{position:relative}
+.about-img{position:relative;width:min(100%,360px);justify-self:center}
 .about-img img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px 6px 200px 200px;box-shadow:var(--shadow)}
 .about-copy{min-width:0}
 .about-copy h2{font-size:clamp(2rem,4vw,3rem);margin:12px 0 20px}
