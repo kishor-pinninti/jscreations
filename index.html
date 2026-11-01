@@ -102,16 +102,19 @@ section{padding-block:clamp(56px,8vw,104px)}
 
 /* collection */
 #collection{background:var(--bg-2)}
-.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
-.filters button{font:400 .8rem/1 var(--ui);letter-spacing:.14em;text-transform:uppercase;padding:11px 16px;background:transparent;color:var(--muted);border:1px solid var(--line);cursor:pointer}
+.catnav{border-top:1px solid var(--line)}
+.catnav .wrap{padding-block:8px}
+.filters{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+@media (max-width:900px){.filters{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;scrollbar-width:none}}
+.filters button{font:400 .72rem/1 var(--ui);letter-spacing:.12em;text-transform:uppercase;padding:8px 12px;white-space:nowrap;flex:none;background:transparent;color:var(--muted);border:1px solid var(--line);cursor:pointer}
 .filters button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-.cat{scroll-margin-top:180px}
+.cat{scroll-margin-top:150px}
+#collection{scroll-margin-top:110px}
 .cats{display:grid;gap:clamp(44px,6vw,72px)}
 .cat-head{display:grid;grid-template-columns:auto 1fr;align-items:baseline;gap:4px 14px;padding-bottom:14px;margin-bottom:22px;border-bottom:1px solid var(--line)}
 .cat-head h3{font-size:clamp(1.5rem,2.6vw,1.9rem)}
 .cat-head span{font:500 .72rem/1 var(--ui);letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
 .cat-head p{grid-column:1/-1;margin:0;color:var(--muted);font-size:.98rem}
-.filters{position:sticky;top:calc(env(safe-area-inset-top,0px) + 67px);z-index:5;background:var(--bg-2);padding-block:10px}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2.4vw,28px)}
 @media (max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:520px){.grid{grid-template-columns:1fr}}
@@ -308,6 +311,7 @@ document.getElementById("theme-save").addEventListener("click", async () => {
       <a href="#contact">Contact</a>
     </nav>
   </div>
+  <div class="catnav"><div class="wrap"><div class="filters" role="group" aria-label="Shop by category" id="filters"></div></div></div>
 </header>
 
 <main id="top">
@@ -344,7 +348,6 @@ document.getElementById("theme-save").addEventListener("click", async () => {
         <div><span class="eyebrow">The collection · <span id="piece-count">22</span> designs in 6 categories</span><h2>Recent pieces</h2></div>
         <p>Every piece is made in small numbers. Tap a colour to see it, or ask for a design in your own choice of stones.</p>
       </div>
-      <div class="filters" role="group" aria-label="Filter by category" id="filters"></div>
       <div id="grid" class="cats"></div>
     </div>
   </section>
@@ -572,6 +575,7 @@ grid.addEventListener("click", e => {
 document.querySelectorAll(".filters button").forEach(b => b.addEventListener("click", () => {
   document.querySelectorAll(".filters button").forEach(x => x.setAttribute("aria-pressed", x === b));
   grid.querySelectorAll(".cat").forEach(el => el.hidden = !(b.dataset.f === "all" || el.dataset.cat === b.dataset.f));
+  document.getElementById("collection").scrollIntoView({behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
 }));
 
 /* lightbox */
